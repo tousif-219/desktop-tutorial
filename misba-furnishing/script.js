@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Misba Furnishing — site script (shared by every page)
    EDIT HERE: business details, form endpoint, and images.
    ============================================================ */
@@ -48,7 +48,7 @@ const IMG = {
   igLiving: 'ig-living-room-drapes', igLace: 'ig-lace-sheer-curtains', igPrinted: 'ig-printed-curtains',
   // client installations (Insta folder)
   clSheerSofa: 'client-sheer-sofa-living', clZebra: 'client-zebra-blinds', clBedroom: 'client-bedroom-drapes', clWoodCorner: 'client-wooden-blinds-corner',
-  clUSofa: 'client-u-sectional-sofa', clOffice: 'client-office-blinds', clTealSofa: 'client-teal-sectional-sofa',
+  clUSofa: 'client-u-sectional-sofa', clOffice: 'client-office-blinds', clTealSofa: 'client-teal-sectional-sofa', clBedroomSheer: 'client-bedroom-sheer-curtains',
   // mini theater
   theaterScreen: 'theater-screen', theaterSeats: 'theater-seating',
   // showroom
@@ -107,7 +107,8 @@ const COLLECTIONS = [
 ];
 
 const WORK = [
-  ['Curtains', IMG.clBedroom, 'Bedroom drapes with sheers — client home'], ['Sofas', IMG.clTealSofa, 'Teal L-shaped sofa — client home'], ['Blinds', IMG.clZebra, 'Zebra blinds — client home'],
+  ['Curtains', IMG.clBedroomSheer, 'Pleated drapes with printed sheers — client bedroom'],
+  ['Curtains', IMG.clBedroom, 'Bedroom drapes with sheers — client home'],['Sofas', IMG.clTealSofa, 'Teal L-shaped sofa — client home'], ['Blinds', IMG.clZebra, 'Zebra blinds — client home'],
   ['Sofas', IMG.clUSofa, 'U-shaped sectional sofa — client home'], ['Blinds', IMG.clOffice, 'Wooden blinds for an office'], ['Curtains', IMG.clSheerSofa, 'Sheer curtains & custom sofa — client home'],
   ['Blinds', IMG.clWoodCorner, 'Wooden venetian blinds, corner window'],
   ['Curtains', IMG.igLiving, 'Living room drapes — client home'], ['Curtains', IMG.igLace, 'Lace sheer curtains with tie-back'],
@@ -378,6 +379,24 @@ const hero = $('#hero');
 if (hero) {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Slideshow: complete photos in a frame, with a soft "shadow image" of the same photo behind the hero.
+  // Home hero: crossfading photos with a slow zoom
+  const photos = [...hero.querySelectorAll('#heroPhotos .hs')], hdots = $('#heroBar');
+  if (photos.length > 1 && hdots) {
+    hdots.innerHTML = photos.map((_, i) => `<button type="button" class="${i ? '' : 'on'}" aria-label="Show photo ${i + 1}"><i></i></button>`).join('');
+    const btns = [...hdots.children];
+    let at = 0, tm = null;
+    const show = n => {
+      photos[at].classList.replace('on', 'out'); btns[at].classList.remove('on');
+      const prev = photos[at]; setTimeout(() => prev.classList.remove('out'), 1500);
+      at = (n + photos.length) % photos.length;
+      photos[at].classList.add('on'); void btns[at].offsetWidth; btns[at].classList.add('on');
+      next();
+    };
+    const next = () => { clearTimeout(tm); if (reduce) { hdots.classList.add('static'); return; } tm = setTimeout(() => show(at + 1), 5500); };
+    btns.forEach((b, i) => b.onclick = () => show(i));
+    document.addEventListener('visibilitychange', () => document.hidden ? clearTimeout(tm) : next());
+    next();
+  }
   const slidesEl = $('#showSlides'), dotsEl = $('#showDots'), ghostsEl = $('#heroGhosts');
   if (slidesEl) {
     slidesEl.innerHTML = HERO_SLIDES.map(([id, label, slug], i) =>
