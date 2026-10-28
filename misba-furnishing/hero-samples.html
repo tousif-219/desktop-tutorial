@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hero Samples — Misba Furnishing</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f1b17;--ink-2:#4a433c;--muted:#857b70;--cream:#f7f3ee;--sand:#ece4d9;--line:#ddd3c6;--gold:#b08d57;--gold-d:#97763f;--plum:#2a1025;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:#e9e2d8;color:var(--ink)}
+img{display:block;max-width:100%}
+.label{position:sticky;top:0;z-index:20;background:var(--ink);color:#fff;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;font-size:.85rem;letter-spacing:.06em}
+.label b{color:#e9d3ab;font-family:var(--serif);font-size:1.4rem;font-weight:500;letter-spacing:0;margin-right:10px}
+.note{color:#bdb3a6;font-size:.78rem}
+h1{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--gold-d)}
+.kick{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-d);margin-bottom:18px;font-weight:500}
+.sub{color:var(--ink-2);max-width:500px;line-height:1.65;margin-top:18px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;padding:14px 26px;border-radius:999px;font-size:.86rem;font-weight:500;text-decoration:none;letter-spacing:.03em}
+.btn-gold{background:var(--gold);color:#fff}.btn-line{border:1px solid var(--line);color:var(--ink)}
+.stats{display:flex;gap:34px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.stats strong{display:block;font-family:var(--serif);font-size:2rem;font-weight:500;color:var(--gold-d);line-height:1}
+.stats span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;background:linear-gradient(180deg,#f4ede3,#ebe1d3)}
+.wrap{position:relative;z-index:2;max-width:1320px;width:100%;margin:0 auto;padding:0 24px}
+/* SHADOW IMAGE — a large, softened copy of a photo behind the hero */
+.ghost{position:absolute;z-index:0;pointer-events:none;background-size:cover;background-position:center;filter:grayscale(.35) sepia(.25) blur(1px);opacity:.16;mix-blend-mode:multiply}
+.ghost-fade-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+.ghost-fade-r{-webkit-mask-image:linear-gradient(270deg,transparent,#000 45%);mask-image:linear-gradient(270deg,transparent,#000 45%)}
+.ghost-fade-b{-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.frame{background:#fff;padding:8px;border-radius:20px;box-shadow:0 2px 0 rgba(255,255,255,.6) inset,0 40px 80px -20px rgba(42,16,37,.38),0 18px 30px -12px rgba(31,27,23,.25)}
+.frame img{border-radius:14px;width:100%;height:auto}
+.cap{position:absolute;left:20px;bottom:20px;background:rgba(255,255,255,.94);border-radius:999px;padding:7px 13px;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase}
+
+/* A — Split with one hero photo */
+.a .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.a h1{font-size:clamp(2.8rem,5vw,5.2rem)}
+.a .photo{position:relative;justify-self:end;width:min(480px,100%)}
+.a .photo .frame{transform:rotate(1.5deg)}
+.a .inset{position:absolute;left:-70px;bottom:-30px;width:42%;transform:rotate(-4deg)}
+.a .ghost{right:-5%;top:0;bottom:0;width:62%}
+
+/* B — Centered headline, three photos aligned in a row */
+.b{text-align:center;padding-top:120px}
+.b .head{max-width:820px;margin:0 auto}
+.b h1{font-size:clamp(2.6rem,5vw,4.8rem)}
+.b .sub{margin-left:auto;margin-right:auto}
+.b .btns,.b .stats{justify-content:center}
+.b .row{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:24px;align-items:end;max-width:min(820px,82vh);margin:34px auto 0}
+.b h1{font-size:clamp(2.4rem,4.2vw,4.2rem)}
+.b .btns{margin-top:22px}
+.b .row .frame{position:relative}
+.b .ghost{inset:0;opacity:.12}
+
+/* C — Editorial overlap: big photo + floating text card */
+.c .wrap{display:grid;grid-template-columns:repeat(12,1fr);align-items:center}
+.c .photo{grid-column:1 / span 6;grid-row:1;position:relative;width:min(100%,58vh)}
+.c .card{grid-column:6 / span 7;grid-row:1;position:relative;z-index:3;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.8);border-radius:24px;padding:clamp(28px,4vw,56px);box-shadow:0 30px 60px -20px rgba(31,27,23,.25)}
+.c h1{font-size:clamp(2.6rem,4.4vw,4.6rem)}
+.c .ghost{left:30%;right:0;top:0;bottom:0}
+.c .small{position:absolute;right:-30px;top:-34px;width:34%;transform:rotate(5deg)}
+
+@media (max-width:860px){
+  .a .wrap,.c .wrap{display:flex;flex-direction:column-reverse;gap:40px}
+  .a .photo{justify-self:center;width:min(360px,86%)}
+  .a .inset{left:-24px;width:40%}
+  .c .card{margin-top:-60px;margin-left:12px;margin-right:12px}
+  .c .wrap{flex-direction:column}
+  .b .row{grid-template-columns:1fr 1fr;gap:12px}.b .row .frame:last-child{display:none}
+  .stats{gap:22px}
+}
+</style>
+</head>
+<body>
+
+<div class="label"><span><b>Option A</b>Split — one large complete photo, with a shadow image behind</span><span class="note">Text left · hero photo right · small inset photo</span></div>
+<section class="hero a">
+  <div class="ghost ghost-fade-l" style="background-image:url(images/curtains-ombre-window.jpg)"></div>
+  <div class="wrap">
+    <div>
+      <p class="kick">Shivamogga · Serving all of Karnataka</p>
+      <h1>Make Your Space<br><em>Feel Like Home.</em></h1>
+      <p class="sub">Customized curtains, blinds, wallpapers, mattresses and complete home furnishing solutions — designed around your space and your style.</p>
+      <div class="btns"><a class="btn btn-gold" href="#">Book a Home Visit</a><a class="btn btn-line" href="#">Explore Our Gallery</a></div>
+      <div class="stats"><div><strong>30+</strong><span>Years of trust</span></div><div><strong>9</strong><span>Premium brands</span></div><div><strong>Karnataka</strong><span>Wide service</span></div></div>
+    </div>
+    <div class="photo">
+      <div class="frame"><img src="images/curtains-ddecor-sarom.jpg" alt=""><span class="cap">Curtains</span></div>
+      <div class="frame inset"><img src="images/ig-living-room-drapes.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<div class="label"><span><b>Option B</b>Centered — headline on top, three complete photos aligned below</span><span class="note">Symmetrical · shadow image across the whole background</span></div>
+<section class="hero b">
+  <div class="ghost ghost-fade-b" style="background-image:url(images/showroom-wide.jpg)"></div>
+  <div class="wrap">
+    <div class="head">
+      <p class="kick">Shivamogga · Serving all of Karnataka</p>
+      <h1>Make Your Space <em>Feel Like Home.</em></h1>
+      <p class="sub">Customized curtains, blinds, wallpapers, mattresses and complete home furnishing solutions — designed around your space.</p>
+      <div class="btns"><a class="btn btn-gold" href="#">Book a Home Visit</a><a class="btn btn-line" href="#">Explore Our Gallery</a></div>
+    </div>
+    <div class="row">
+      <div class="frame"><img src="images/blinds-display.jpg" alt=""><span class="cap">Blinds</span></div>
+      <div class="frame"><img src="images/curtains-ddecor-sarom.jpg" alt=""><span class="cap">Curtains</span></div>
+      <div class="frame"><img src="images/theater-seating.jpg" alt=""><span class="cap">Mini Theater</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="label"><span><b>Option C</b>Editorial — big complete photo with a frosted text card overlapping</span><span class="note">Magazine style · shadow image on the right</span></div>
+<section class="hero c">
+  <div class="ghost ghost-fade-l" style="background-image:url(images/showroom-brand-wall.jpg)"></div>
+  <div class="wrap">
+    <div class="photo">
+      <div class="frame"><img src="images/curtains-ombre-window.jpg" alt=""><span class="cap">Ombré drapes</span></div>
+      <div class="frame small"><img src="images/blinds-display.jpg" alt=""></div>
+    </div>
+    <div class="card">
+      <p class="kick">Shivamogga · Serving all of Karnataka</p>
+      <h1>Make Your Space<br><em>Feel Like Home.</em></h1>
+      <p class="sub">Customized curtains, blinds, wallpapers, mattresses and complete home furnishing solutions — designed around your space and your style.</p>
+      <div class="btns"><a class="btn btn-gold" href="#">Book a Home Visit</a><a class="btn btn-line" href="#">Explore Our Gallery</a></div>
+      <div class="stats"><div><strong>30+</strong><span>Years of trust</span></div><div><strong>9</strong><span>Premium brands</span></div><div><strong>Karnataka</strong><span>Wide service</span></div></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "misba",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server@14.1.1", "misba-furnishing", "-p", "5173", "-c-1"],
+      "port": 5173
+    }
+  ]
+}
