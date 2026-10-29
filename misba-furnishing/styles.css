@@ -553,7 +553,10 @@ address{font-style:normal;color:var(--ink-2);line-height:1.75}
 .ct-swatches li{transform-origin:50% 0}
 @keyframes swingIn{0%{opacity:0;transform:translateY(-24px) rotate(-7deg)}45%{opacity:1;transform:rotate(4deg)}70%{transform:rotate(-2deg)}88%{transform:rotate(.8deg)}100%{transform:none}}
 .ct-ig{margin-top:44px;color:var(--ink-2)}
-.ct-ig a{color:var(--gold-d);text-decoration:underline;text-underline-offset:3px}
+.ct-ig{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;text-align:center}
+.ct-ig-btn{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:14px;color:#fff;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%);box-shadow:0 6px 16px rgba(214,36,159,.28);transition:transform .3s var(--ease)}
+.ct-ig-btn:hover{transform:translateY(-2px) scale(1.06)}
+.ct-ig-btn svg{width:24px;height:24px}
 /* booking */
 .ct-book{background:var(--white);padding:clamp(70px,9vw,120px) 0}
 .ct-book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:start}
@@ -601,8 +604,7 @@ address{font-style:normal;color:var(--ink-2);line-height:1.75}
 .smart{background:linear-gradient(120deg,#2a1025,#1f1b17);color:#fff;padding:26px 0}
 .smart-in{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
 .smart-icon{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#e9d3ab;border:1.5px solid rgba(233,211,171,.4)}
-.smart-icon svg{width:32px;height:32px}
-.smart h2{font-size:clamp(1.25rem,2.1vw,1.7rem);margin-bottom:4px}
+.smart-icon svg{width:32px;height:32px}.smart h2{font-size:clamp(1.25rem,2.1vw,1.7rem);margin-bottom:4px}
 .smart h2 em{color:#e9d3ab}
 .smart-text p:not(.eyebrow){opacity:.8;font-weight:300;font-size:.95rem;max-width:620px}
 .smart .eyebrow{margin-bottom:4px}
