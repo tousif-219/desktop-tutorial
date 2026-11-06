@@ -158,7 +158,7 @@ document.body.insertAdjacentHTML('afterbegin', `
 <a class="skip" href="#main">Skip to content</a>
 <header class="header" id="header">
   <div class="header-in">
-    <a href="index.html" class="logo-img" aria-label="Misba Furnishing home"><img src="logo-black.png" alt="Misba Furnishing" width="699" height="264"></a>
+    <a href="index.html" class="logo-img" aria-label="Misba Furnishing home"><img class="lg-dark" src="logo-3d.png" alt="Misba Furnishing" width="900" height="353"><img class="lg-light" src="logo-3d-light.png" alt="" aria-hidden="true" width="900" height="353"></a>
     <nav class="nav" id="nav" aria-label="Main">
       ${NAV.map(([k, href, label]) => `<a href="${href}"${k === activeNav ? ' class="active" aria-current="page"' : ''}>${label}</a>`).join('')}
     </nav>
@@ -173,7 +173,7 @@ document.body.insertAdjacentHTML('beforeend', `
 <footer class="footer">
   <div class="wrap foot-grid">
     <div>
-      <img class="foot-logo" src="logo-transparent.png" alt="Misba Furnishing" width="699" height="264" loading="lazy">
+      <img class="foot-logo" src="logo-3d-light.png" alt="Misba Furnishing" width="900" height="353" loading="lazy">
       <p class="muted-l">Customized Home Furnishing &amp; Interior Solutions</p>
       <div class="foot-social">
         <a href="${IG}" target="_blank" rel="noopener" aria-label="Instagram">${svg('ig')}</a>
